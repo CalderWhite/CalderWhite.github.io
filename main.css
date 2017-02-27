@@ -1,11 +1,14 @@
 p{
-    color:red;
-    font-family: Arial;
+    font-family: Courier;
+    font-weight: bold;
 }
 .project{
     transition: all 2s ease 0s;
     background:#F0F0F0;
     width:20%;
+    border-radius:5px;
+    margin:2.5%;
+    float:left;
 }
 .project:hover{
     transform: scale(1.07,1.07);
