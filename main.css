@@ -2,3 +2,12 @@ p{
     color:red;
     font-family: Arial;
 }
+.project{
+    transition: all 2s ease 0s;
+    background:#F0F0F0;
+    width:20%;
+}
+.project:hover{
+    transform: scale(1.07,1.07);
+    box-shadow: 0 0 50px #888888;
+}
