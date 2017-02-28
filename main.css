@@ -43,6 +43,7 @@ body{
     margin:1.25%;
     float:left;
     text-align:center;
+    cursor:pointer;
 }
 .project:hover{
     transform: scale(1.1,1.1);
@@ -53,4 +54,5 @@ body{
     display:block;
     background: linear-gradient(grey,#181818), #181818;
     text-align:center;
+    cursor:pointer;
 }
