@@ -1,2 +1,2 @@
 # calderwhite.github.io
-My Website (Finally!)
+Like a barber, I just gave my website a dope fade.
