@@ -1,0 +1,132 @@
+/* fonts */
+@font-face{
+    font-family: Lobster;
+    src : url("fonts/Lobster1.4.otf") format("opentype");
+}
+@font-face{
+  font-family: calluna;
+  src:url(fonts/CallunaSansRegular.otf);
+}
+/* project styles */
+p, h1, h2, h3, h4{
+    font-family: Courier;
+    font-weight: bold;
+}
+p{
+    font-size:15px;
+}
+a{
+    color:#4078c0;
+    text-decoration: underline;
+    font-weight: normal;
+}
+h2{
+    font-size:28px;
+    margin:0px;
+    margin-top:5%;
+    font-family: Lobster;
+}
+p.mini{
+    font-size:11px;
+    margin:0px;
+}
+body{
+    background:black;
+    margin:0px;
+    padding:0px;
+}
+.project{
+    transition: all 1s ease 0s;
+    background:#F0F0F0;
+    width:22.5%;
+    height:280px;
+    position: relative;
+    border-radius:5px;
+    margin:1.25%;
+    float:left;
+    text-align:center;
+    cursor:pointer;
+}
+.project:hover{
+    transform: scale(1.1,1.1);
+    box-shadow: 0 0 50px #888888;
+}
+.navbar{
+    position: fixed;
+    z-index: 2;
+    height: 12vh;
+    max-height: 80px;
+    min-height: 50px;
+    width:100%;
+    background:rgba(0,0,0,0.7);
+    transition:all .5s;
+}
+.spacer{
+    position: relative;
+    top:0px;
+    left:0px;
+    width:100%;
+    height: 12vh;
+    max-height: 80px;
+    min-height: 50px;
+}
+.navbar:hover{
+  background:black;
+}
+.navbar > ul { 
+    margin: auto; 
+    padding: 0; 
+    list-style: none; 
+    display: table;
+    text-align: left;
+}
+.navbar > ul > li { 
+    float: left;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0px;
+    line-height: 7vh;
+}
+.navbar > ul > li > a {
+    font-family: calluna;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    cursor:pointer;
+    display: inline-block;
+    padding-top:15px;
+    margin-top:15px;
+    padding: 0px 20px;
+    position: relative;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none;
+}
+.navbar > ul > li > a:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: white;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none;
+}
+.navbar > ul > li > a:hover:after { 
+    width: 50%; 
+    left: 25%; 
+}

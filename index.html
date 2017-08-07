@@ -6,9 +6,14 @@
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
+        <!-- Prerequisite font stylesheet !-->
+        <link rel="stylesheet" href="css/font.css" type="text/css" />
         <script type="text/javascript" src="js/typed.min.js"></script>
+        <!-- First party stuff !-->
         <link rel="stylesheet" href="main.css" type="text/css" />
         <script type="text/javascript" src="main.js"></script>
+        <!-- seperate project css file, for the slideshow !-->
+        <link rel="stylesheet" href="projects.css" type="text/css" />
     </head>
     <body>
         <div class="top-background"></div>
@@ -18,7 +23,13 @@
                     <a href="index.html">Calder White</a>
                 </li>
                 <li>
-                    <a href="#">All Projects</a>
+                    <a href="all.html">Project Archive</a>
+                </li>
+                <li>
+                    <a href="resume.pdf">Resum&eacute;</a>
+                </li>
+                <li>
+                    <a href="#">Socials</a>
                 </li>
             </ul>
         </nav>
@@ -29,7 +40,9 @@
             <div class="slideshow">
                 <!-- Left shift button !-->
                 <div class="slideshow-btn-wrapper slideshow-btn-left">
-                    <div class="slideshow-btn-left slideshow-btn"></div>
+                    <div class="slideshow-btn-left slideshow-btn">
+                        <div class="slideshow-arrow-wrapper wrap-left"><i class="slideshow-arrow slideshow-arrow-left"></i></div>
+                    </div>
                 </div>
                 <!-- THERE MUST BE 5 SLIDES ON DISPLAY AT ALL TIMES !-->
                 <div class="slide-0 slide">
@@ -37,13 +50,32 @@
                 </div>
                 <!-- Slide 0 is to the left, completely off screen !-->
                 <div class="slide-1 slide">
-                    <p>1</p>
+                    <div id="bb-slide">
+                        <h3>
+                            Back up all your pins lighting fast, with Go.
+                        </h3>
+                        <p>&ldquo;In case the lights go out at Pinterest.&rdquo;</p>
+                        <div class="video-demo-wrapper" onclick="window.location.href='https://github.com/CalderWhite/backupBoard'">
+                            <img src="media/backupboard-demo.gif"/>
+                        </div>
+                    </div>
                 </div>
+                <!-- center slide, is shifted on load !-->
                 <div class="slide-2 slide">
-                    <p>2</p>
+                    <div id="cc-demo" class="video-wrapper">
+                        <pre>The safe, and secure platform for connecting Students all across Ontario.</pre>
+                        <div class="video-demo-wrapper" onclick="window.location.href='https://classroomconnect.herokuapp.com'">
+                            <img src="media/classroomconnect-demo.gif"/>
+                        </div>
+                    </div>
                 </div>
                 <div class="slide-3 slide">
-                    <p>3</p>
+                    <div id="ss-demo" class="video-wrapper">
+                        <pre>Find the organizational structure of any company's employees.</pre>
+                        <div class="video-demo-wrapper" onclick="window.location.href='https://structuresearch.herokuapp.com'">
+                            <img src="media/structuresearch-demo.gif"/>
+                        </div>
+                    </div>
                 </div>
                 <!-- Slide 4 is required to prevent odd transitions from 0 to length !-->
                 <div class="slide-4 slide">
@@ -52,7 +84,9 @@
                 <!-- Add all additional slides here !-->
                 <!-- Right shift button !-->
                 <div class="slideshow-btn-wrapper slideshow-btn-right">
-                    <div class="slideshow-btn-right slideshow-btn"></div>
+                    <div class="slideshow-btn-right slideshow-btn">
+                        <div class="slideshow-arrow-wrapper wrap-right"><i class="slideshow-arrow slideshow-arrow-right"></i></div>
+                    </div>
                 </div>
             </div>
         </div>

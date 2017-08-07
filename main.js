@@ -1,13 +1,25 @@
 /* global $ */
 /* global Typed */
-// SLIDES CODE:
+//https://cloudconvert.com/webm-to-gif
+//https://ezgif.com/crop
+//http://png2jpg.com/
+
+// THE ISSUE IS WITH THE RIGHT BUTTON
+// (negative sIndex increments, line 144)
+
+/**** SLIDES CODE ****/
+// constants
+var slideWait = 14000;
+var projectNames = ["slide 0","Backup Board","Classroom Connect","Structure Search","slide 4"];
+// global variables
+var shiftHooks = [];
 var shifting;
 var shiftInProgress = false;
-var btnShifting;
-var projectNames = ["slide 0","slide 1","slide 2","slide 3","slide 4"];
-var projectNameStack = ["slide 3"];
+var shifting;
+var projectNameStack = [projectNames[3]];
 var currentType;
 var sIndex;
+// functions
 function shiftSlides(forward) {
     shiftInProgress = true;
     var s = document.getElementsByClassName("slide");
@@ -32,6 +44,9 @@ function shiftSlides(forward) {
         s[i].className = nextClass;
         //console.log(s[i],s[i].className)
     }
+    for(i=0;i<shiftHooks.length;i++){
+        shiftHooks[i]();
+    }
     setTimeout(function(){
         shiftInProgress = false;
     },1000)
@@ -49,9 +64,9 @@ function infiniteShift(index){
     shiftSlides();
     // subtract 1000 off the timeout, since transitions take 1 second.
     shifting = setTimeout(function() {
-        infiniteShift((index+1)%projectNames.length);
         sIndex+=1;
-    },6000);
+        infiniteShift((index+1)%projectNames.length);
+    },slideWait);
 }
 function runTyped(doPop){
     // use the global variable projectNameStack, so that other programs can modify it while in use
@@ -84,26 +99,25 @@ $(document).ready(function() {
     // effectively preventing multiple shifts when the user returns
     $(window).blur(function() {
         clearTimeout(shifting);
+        console.log("cleared")
     });
     $(window).focus(function(){
-        btnShifting = setTimeout(function(){
-            var ci = sIndex + 1;
+        shifting = setTimeout(function(){
+            var ci = sIndex+1;
             if (sIndex < 0){
                 ci = projectNames.length + ci;
             } else{
                 ci = ci % projectNames.length;
             }
+            sIndex = ci;
             infiniteShift(ci);
-        },6000);
+        },slideWait);
     });
     // shifting buttons
     // long code since there were bugs putting it into 1 function
-    $(".slideshow-btn-left .slideshow-btn").mouseup(function(){
+    $(".slideshow-btn-right .slideshow-btn").mouseup(function(){
         if (!shiftInProgress){
             clearTimeout(shifting);
-            if (btnShifting!= undefined){
-                clearTimeout(btnShifting);
-            }
             shiftSlides(true);
             sIndex+=1;
             sIndex %=projectNames.length;
@@ -115,23 +129,21 @@ $(document).ready(function() {
             // leaving it with only the current string (header text)
             runTyped(true);
             // reset recursive loop
-            btnShifting = setTimeout(function(){
+            shifting = setTimeout(function(){
                 var ci = sIndex + 1;
                 if (sIndex < 0){
                     ci = projectNames.length + ci;
                 } else{
                     ci = ci % projectNames.length;
                 }
+                sIndex = ci;
                 infiniteShift(ci);
-            },6000);
+            },slideWait);
         }
     });
-    $(".slideshow-btn-right .slideshow-btn").mouseup(function(){
+    $(".slideshow-btn-left .slideshow-btn").mouseup(function(){
         if (!shiftInProgress){
             clearTimeout(shifting);
-            if (btnShifting!= undefined){
-                clearTimeout(btnShifting);
-            }
             shiftSlides(false);
             sIndex-=1;
             if (sIndex < 0) {
@@ -145,15 +157,47 @@ $(document).ready(function() {
             // leaving it with only the current string (header text)
             runTyped(true);
             // reset recursive loop
-            btnShifting = setTimeout(function(){
+            shifting = setTimeout(function(){
                 var ci = sIndex + 1;
-                if (sIndex < 0){
+                if (ci < 0){
                     ci = projectNames.length + ci;
                 } else{
                     ci = ci % projectNames.length;
                 }
+                sIndex = ci;
                 infiniteShift(ci);
-            },6000);
+            },slideWait);
         }
     });
-})
+});
+function checkMedia(rule,thumbnail,img){
+    if ($(rule)[0].parentElement.className.search("slide-2") > -1){
+        // wait 900s to start just before transition is over to avoid lag, but also give a smooth effect from paused to playing
+        setTimeout(function(){
+            $(rule)[0].getElementsByTagName("img")[0].src = img;
+        },900);
+    } else{
+        $(rule)[0].getElementsByTagName("img")[0].src = thumbnail;
+    }
+}
+shiftHooks.push(function(){
+    checkMedia(
+        "#ss-demo",
+        "media/structuresearch-demo-frozen.jpg",
+        "media/structuresearch-demo.gif"
+    );
+});
+shiftHooks.push(function(){
+    checkMedia(
+        "#cc-demo",
+        "media/classroomconnect-demo-frozen.jpg",
+        "media/classroomconnect-demo.gif"
+    );
+});
+shiftHooks.push(function(){
+    checkMedia(
+        "#bb-slide",
+        "media/backupboard-demo-frozen.jpg",
+        "media/backupboard-demo.gif"
+    );
+});
