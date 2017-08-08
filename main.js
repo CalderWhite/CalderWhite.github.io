@@ -4,13 +4,10 @@
 //https://ezgif.com/crop
 //http://png2jpg.com/
 
-// THE ISSUE IS WITH THE RIGHT BUTTON
-// (negative sIndex increments, line 144)
-
 /**** SLIDES CODE ****/
 // constants
 var slideWait = 14000;
-var projectNames = ["slide 0","Backup Board","Classroom Connect","Structure Search","slide 4"];
+var projectNames = ["Hacker Speak","Backup Board","Classroom Connect","Structure Search","Cruise 64"];
 // global variables
 var shiftHooks = [];
 var shifting;

@@ -6,6 +6,8 @@
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
         <!-- Prerequisite font stylesheet !-->
         <link rel="stylesheet" href="css/font.css" type="text/css" />
         <script type="text/javascript" src="js/typed.min.js"></script>
@@ -18,7 +20,7 @@
     <body>
         <div class="top-background"></div>
         <nav class="navbar">
-            <ul>
+            <ul class="sub">
                 <li>
                     <a href="index.html">Calder White</a>
                 </li>
@@ -28,8 +30,13 @@
                 <li>
                     <a href="resume.pdf">Resum&eacute;</a>
                 </li>
-                <li>
-                    <a href="#">Socials</a>
+                <li style="padding-left:15px;">
+                    <ul id="socials" class="social-icons icon-circle icon-zoom list-unstyled list-inline">
+                        <li><a href="https://github.com/CalderWhite"><i class="fa fa-github" style="height:40px;width:40px;line-height:40px;"></i></a></li>
+                        <li><a href="https://twitter.com/calder_white"><i class="fa fa-twitter" style="height:40px;width:40px;line-height:40px;"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/calderwhite/"><i class="fa fa-linkedin" style="height:40px;width:40px;line-height:40px;"></i></a></li>
+                        <li><a href="https://facebook.com/calderwhite1"><i class="fa fa-facebook" style="height:40px;width:40px;line-height:40px;"></i></a></li>
+                    </ul>
                 </li>
             </ul>
         </nav>
@@ -46,7 +53,10 @@
                 </div>
                 <!-- THERE MUST BE 5 SLIDES ON DISPLAY AT ALL TIMES !-->
                 <div class="slide-0 slide">
-                    <p>0</p>
+                    <div id="hs-wip" >
+                        <h3>Find out what all the hackers are talking about, at any given time.</h3>
+                        <p>Web app in progress, database is finished.</p>
+                    </div>
                 </div>
                 <!-- Slide 0 is to the left, completely off screen !-->
                 <div class="slide-1 slide">
@@ -79,7 +89,12 @@
                 </div>
                 <!-- Slide 4 is required to prevent odd transitions from 0 to length !-->
                 <div class="slide-4 slide">
-                    <p>4</p>
+                    <div id="c64-demo" class="video-wrapper">
+                        <pre>Grade 9 Advanced Placement astronomy summative.</pre>
+                        <div class="video-demo-wrapper" onclick="window.location.href='https://cruise64.github.io'">
+                            <img src="media/cruise64.jpg"/>
+                        </div>
+                    </div>
                 </div>
                 <!-- Add all additional slides here !-->
                 <!-- Right shift button !-->
