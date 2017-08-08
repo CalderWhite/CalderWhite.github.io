@@ -1,15 +1,14 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
     <head>
+        <title>Calder's Project Archive</title>
   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
         <link rel="stylesheet" href="all.css" type="text/css" />
         <script type="text/javascript">
             function linkMe(obj){
-                obj.onclick = function(obj){
-                    window.location.href = obj.href;
-                }
-            }
+                window.location = obj.getAttribute("href");
+            }   
         </script>
     </head>
     <body>
@@ -38,6 +37,22 @@
         </nav>
         <div class="spacer"></div>
         <div id="main-content">
+            <div class="project" href="https://github.com/CalderWhite/backupBoard" onclick='linkMe(this)'>
+                <h2>backupBoard</h2>
+                <p class="mini">July 29th - July 29th, 2017</p>
+                <p>
+                    A litle side project for my sister, who hoards pinterest pins (4.5K of them). I asked her to wish for any app, and she asked for an app that backs up all your pins, and here we are.
+                </p>
+            </div>
+            <div class="project">
+                <h2>Structure Search</h2>
+                <p class="mini">June 25th - July 25th, 2017</p>
+                <p style="font-size:11px;">
+                    A considerably large project start the second I got out of school. I was always curious abot how companies worked, and wanted to know. Thus an app was born.
+                    By scraping the web, my algorithm finds the employees of a company, and then structures them into an estimate of said company's organizational structure. Currently there is a limit of 1000 employees for a company to work,
+                    but if I ever returned to the project, I might grow this value. <span style="color:red">*Please note this repository is private, however you may access the api and web app for free, at <a href="https://structuresearch.herokuapp.com">structuresearch.herokuapp.com</a></span>
+                </p>
+            </div>
             <div class="project" href="https://github.com/CalderWhite/YouSource" onclick='linkMe(this)'>
                 <h2>YouSource</h2>
                 <p class="mini">June 8th, 2017</p>
