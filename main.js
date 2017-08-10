@@ -101,7 +101,7 @@ $(document).ready(function() {
     $(window).focus(function(){
         shifting = setTimeout(function(){
             var ci = sIndex+1;
-            if (sIndex < 0){
+            if (ci < 0){
                 ci = projectNames.length + ci;
             } else{
                 ci = ci % projectNames.length;
