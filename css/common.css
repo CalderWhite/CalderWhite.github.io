@@ -1,0 +1,56 @@
+@font-face{
+  font-family: calluna;
+  src:url(/fonts/CallunaSansRegular.otf);
+}
+
+.banner > div {
+  text-align: center;
+  padding: 1em;
+}
+
+.banner a {
+    font-family: calluna;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    color: grey;
+
+    cursor:pointer;
+
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+    user-select: none;
+}
+
+.banner a:after {
+    background: none repeat scroll 0 0 transparent;
+    background: grey;
+
+    content: "";
+    display: block;
+    position: absolute;
+
+    bottom: 0.5em;
+    height: 2px;
+    left: 50%;
+
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    
+    /* Rules below not implemented in browsers yet */
+    -o-user-select: none;
+}
+
+.banner a:hover:after {
+    width: 50%;
+    left: 25%;
+}
